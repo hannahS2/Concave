@@ -14,7 +14,7 @@ public class User {
         this.color = color;
     }
 
-    public boolean putStone(int x, int y, int width, int row, int margin){
+    public int[] putStone(int x, int y, int width, int row, int margin){
 
         System.out.println(color+"색 돌을 "+ x +", "+ y + "에 놓는 중입니다.");
 
@@ -37,7 +37,7 @@ public class User {
         //2. 33규칙을 위반하지 않았는지 확인
 
 
-        return true;
+        return new int[]{posX,posY};
 
 
     }

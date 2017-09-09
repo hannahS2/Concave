@@ -3,6 +3,8 @@ public class Stone {
     public Stone(int color){
         this.color = color;
     }
+    //돌맹이
+
 
     private int x;
     private int y;

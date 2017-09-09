@@ -27,7 +27,7 @@ public class Referee {
         int posY = newStone.getY();
         int color = newStone.getColor();
 
-
+        return true;
     }
 
     static private boolean checkAlready(int[][] stones, Stone newStone){
@@ -48,6 +48,7 @@ public class Referee {
 
         //십자가 33
         if(color==stones[posX-1][posY]&& color==stones[posX+1][posY]&& color==stones[posX][posY-1]&&color==stones[posX][posY+1]){
+            //막혀있는거 확인 (해야함)
             if(stones[posX-2][posY]==1){
 
             }
@@ -55,6 +56,10 @@ public class Referee {
         }
         //크로스 33
         if(stones[posX][posY]==stones[posX-1][posY-1]&&stones[posX][posY]==stones[posX-1][posY+1]&&stones[posX][posY]==stones[posX+1][posY-1]&&stones[posX][posY]==stones[posX+1][posY+1]){
+            //막혀있는거 확인 (해야함)
+            if(stones[posX-2][posY]==1){
+
+            }
             return false;
         }
         return true;

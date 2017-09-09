@@ -1,7 +1,11 @@
 public class Stone {
 
-    public Stone(int color){
+    public Stone(int color, int x, int y){
+
         this.color = color;
+        this.x = x;
+        this.y = y;
+
     }
     //돌맹이
 

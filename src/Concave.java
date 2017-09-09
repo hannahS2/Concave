@@ -63,8 +63,8 @@ public class Concave extends PApplet {
 
 
         int[] pos = Referee.getCurrentUser().putStone(x, y, width, row, margin);
-
-        if(Referee.checkPossibility(stones,pos) == false) {
+        Stone newStone = new Stone(Referee.getCurrentUser().getColor(), pos[0], pos[1]);
+        if(Referee.checkPossibility(stones, newStone) == false) {
             return;
         }
 
@@ -80,6 +80,5 @@ public class Concave extends PApplet {
             stones[pos[0]][pos[1]]= 2;
         }
 
-        System.out.println(stones);
     }
 }

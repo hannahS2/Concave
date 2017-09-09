@@ -19,7 +19,7 @@ public class User {
         System.out.println(color+"색 돌을 "+ x +", "+ y + "에 놓는 중입니다.");
 
         //돌맹이 색 지정
-        Stone stone = new Stone(this.color);
+        Stone stone = new Stone(this.color, x, y);
 
         //x,y 좌표지정
         float interval = width/row;

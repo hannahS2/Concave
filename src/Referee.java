@@ -12,13 +12,15 @@ public class Referee {
     static public boolean checkPossibility(int[][] stones, Stone newStone){
         //1. 이미 놓인 곳인지 확인
         if(!checkAlready(stones, newStone)){
+            System.out.println("이미");
             return false;
         }
 
-        //2. 33인지 확인
-        if(check33(stones, newStone)){
-            return false;
-        }
+//        //2. 33인지 확인
+//        if(check33(stones, newStone)){
+//            System.out.println("33");
+//            return false;
+//        }
         return true;
     }
 

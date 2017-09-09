@@ -6,7 +6,6 @@ public class Concave extends PApplet {
 
     public static void main(String[] args){
         PApplet.main("Concave");
-//        Board b = new Board(width, row);
 
     }
 

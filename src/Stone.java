@@ -8,7 +8,7 @@ public class Stone {
 
     private int x;
     private int y;
-    private int color;
+    private int color; // 1 or 2
 
     public int getX() {
         return x;

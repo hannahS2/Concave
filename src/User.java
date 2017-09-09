@@ -14,7 +14,7 @@ public class User {
         this.color = color;
     }
 
-    public boolean putSton(int x, int y, int width, int row, int margin){
+    public boolean putStone(int x, int y, int width, int row, int margin){
 
         System.out.println(color+"색 돌을 "+ x +", "+ y + "에 놓는 중입니다.");
 
@@ -23,8 +23,8 @@ public class User {
 
         //x,y 좌표지정
         float interval = width/row;
-        int posX = x - margin + (int)(interval/2);
-        int posY = y - margin + (int)(interval/2);
+        int posX = x - margin/2 + (int)(interval/2);
+        int posY = y - margin/2 + (int)(interval/2);
         posX = (int) (posX / interval);
         posY = (int) (posY / interval);
         stone.setX(posX);

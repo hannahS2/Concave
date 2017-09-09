@@ -1,16 +1,20 @@
 import processing.core.PApplet;
 import processing.event.MouseEvent;
 
+import javax.jws.soap.SOAPBinding;
+
 public class Concave extends PApplet {
     static int width = 600;
     static int row = 15;
     int margin = 40;
     int[][] stones = new int[16][16];
+    static User user1 = new User(1);
+    static User user2 = new User(2);
 
     public static void main(String[] args){
         PApplet.main("Concave");
 
-
+        Referee.setCurrentUser(user1);
     }
 
     @Override
@@ -42,7 +46,7 @@ public class Concave extends PApplet {
                 }
                 else if(color == 2) {
                     this.fill(0);
-                    this.ellipse(i*interval, j*interval, 35, 35);
+                    this.ellipse(i*interval+interval/2, j*interval+interval/2, 35, 35);
                 }
                 else continue;
             }
@@ -57,10 +61,24 @@ public class Concave extends PApplet {
         int x = event.getX();
         int y = event.getY();
 
-        User user1 = new User(1);
-        int[] pos = user1.putStone(x, y, width, row, margin);
 
+        int[] pos = Referee.getCurrentUser().putStone(x, y, width, row, margin);
 
+        if(Referee.checkPossibility(stones,pos) == false) {
+            return;
+        }
+
+        if(Referee.getCurrentUser() == user1) {
+            Referee.setCurrentUser(user2);
+        } else if(Referee.getCurrentUser() == user2) {
+            Referee.setCurrentUser(user1);
+        }
+
+        if(Referee.getCurrentUser().getColor() == 1) {
+            stones[pos[0]][pos[1]]= 1;
+        } else if(Referee.getCurrentUser().getColor() == 2) {
+            stones[pos[0]][pos[1]]= 2;
+        }
 
         System.out.println(stones);
     }

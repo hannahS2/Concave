@@ -1,11 +1,12 @@
-public class Referee {User currentUser;
+public class Referee {
+    static User currentUser = new User(0);
 
-    public User getCurrentUser() {
+    static public User getCurrentUser() {
         return currentUser;
     }
 
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
+    static public void setCurrentUser(User user) {
+        currentUser = user;
     }
 
     static public boolean checkPossibility(int[][] stones, Stone newStone){
@@ -26,14 +27,7 @@ public class Referee {User currentUser;
         int posY = newStone.getY();
         int color = newStone.getColor();
 
-        //가로판단 앞
-        int x = posX;
-        int y = posY;
-        int numOfStone = 0;//fdsa
-        while(x>=0 && color==stones[x][y]){
 
-        }
-        return true;
     }
 
     static private boolean checkAlready(int[][] stones, Stone newStone){

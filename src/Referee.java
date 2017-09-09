@@ -1,5 +1,5 @@
 public class Referee {
-    static User currentUser = new User(0);
+    private static User currentUser = new User(0);
 
     static public User getCurrentUser() {
         return currentUser;
@@ -27,7 +27,57 @@ public class Referee {
         int posY = newStone.getY();
         int color = newStone.getColor();
 
-        return true;
+        //가로 앞
+        int preRow = 0;
+        int currentX = posX-1;
+        int currentY = posY;
+        while(currentX>=0 && stones[currentX][currentY]==color){
+            preRow++;
+            currentX--;
+        }
+        //가로 뒤
+        int postRow = 0;
+        currentX=posX+1;
+        currentY=posY;
+        while(currentX<=0 && stones[currentX][currentY]==color){
+            preRow++;
+            currentX++;
+        }
+        if(preRow+postRow>=4){
+            System.out.println(color+" 승리!");
+            return true;
+        }
+
+        //새로 앞
+        int preCol = 0;
+        currentX = posX;
+        currentY = posY-1;
+        while(currentY>=0 && stones[currentX][currentY]==color){
+            preRow++;
+            currentY--;
+        }
+        //새로 뒤
+        int postCol = 0;
+        currentX=posX;
+        currentY=posY+1;
+        while(currentY<=0 && stones[currentX][currentY]==color){
+            preRow++;
+            currentY++;
+        }
+        if(preCol+postCol>=4){
+            System.out.println(color+" 승리!");
+            return true;
+        }
+
+        //대각선 좌상
+        //대각선 우하
+
+
+
+
+
+
+        return false;
     }
 
     static private boolean checkAlready(int[][] stones, Stone newStone){
